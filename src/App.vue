@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2 class="text-center">VueX Ecommerce Platform Consuming Laravel API.</h2>
+    <hr />
+    <hr />
+    <SearchComponent />
+    <div class="row">
+      <div class="col-md-9">
+        <!-- THIS IS THE SECTION THAT THE PRODUCT LIST COMPONENT WILL BE PLACED -->
+        <ProductListComponent />
+      </div>
+      <div class="col-sm-8 col-lg-3">
+        <!-- THIS IS THE SECTION THAT THE PRODUCT CART COMPONENT WILL BE PLACED -->
+        <ShoppingCartCoallationComponent />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import SearchComponent from "./components/SearchComponent/SearchComponent.vue";
+import ProductListComponent from "./components/products/ProductList.vue";
+import ShoppingCartCoallationComponent from "./components/ShoppingCart/ShoppingCartComponentCoalation.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    SearchComponent,
+    ProductListComponent,
+    ShoppingCartCoallationComponent
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
