@@ -4,9 +4,9 @@
     <p>
       <strong>Product Price</strong>&nbsp;
       <span class="text-right" style="float:right;">
-        <i class="fa fa-arrow-circle-down"></i>&nbsp;&nbsp;
-        <i class="fa fa-arrow-circle-up" style="color:blue;"></i>&nbsp;&nbsp;
-        <i class="fa fa-trash-o" style="color:red;"></i>
+        <i class="fa fa-arrow-circle-down cursor"></i>&nbsp;&nbsp;
+        <i class="fa fa-arrow-circle-up cursor" style="color:blue;"></i>&nbsp;&nbsp;
+        <i class="fa fa-trash-o cursor" style="color:red;"></i>
       </span>
       <span></span>
     </p>
@@ -27,5 +27,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.cursor{
+  cursor: pointer;
+}
 </style>
