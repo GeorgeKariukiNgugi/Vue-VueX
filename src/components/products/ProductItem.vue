@@ -12,9 +12,11 @@
       </div>
       <div class="product-info">
         <h3 class="product-title">
-          <a href>Chestnut Cake with Almonds and Chocolate</a>
+          <a href>{{product.name}}</a>
         </h3>
-        <span class="price">Ksh 500 /=</span>
+        <span class="price">Ksh {{product.price}} /=</span>
+        <br />
+        <small>{{product.description}}</small>
       </div>
     </div>
   </div>
@@ -46,7 +48,8 @@
 <script>
 // import  from ''
 export default {
-  name: "ProductItem"
+  name: "ProductItem",
+  props: ["product"]
   //   component:{
 
   //   }
@@ -54,14 +57,14 @@ export default {
 </script>
 
 <style scoped>
-.add-to-cart:hover{
-    background-color: green;
+.add-to-cart:hover {
+  background-color: green;
 }
-.wishlist:hover{
-    background-color: red;
+.wishlist:hover {
+  background-color: red;
 }
 
-.quickview:hover{
-    background-color:blueviolet;
+.quickview:hover {
+  background-color: blueviolet;
 }
 </style>
