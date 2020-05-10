@@ -14,13 +14,12 @@
         <h3 class="product-title">
           <a href>{{product.name}}</a>
         </h3>
-        <span class="price">Ksh {{product.price}} /=</span>
+        <span class="price">Ksh {{product.totalPrice}} /=</span>
         <br />
-        <small>{{product.description}}</small>
+        <small>{{product.star}}</small>
       </div>
     </div>
   </div>
-
   <!-- THIS COMMENTED CODE IS THE ALTERNETIVE SETTING AND STYLEING OF THE ITEM LISTS.  -->
 
   <!-- <div class="col-md-4">

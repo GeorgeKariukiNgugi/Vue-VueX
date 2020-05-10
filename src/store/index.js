@@ -1,13 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import ShoppingCartModule from './modules/ShoppingCart'
-import ProductModule from './modules/Product'
+import product from './modules/Product';
+import cart from './modules/ShoppingCart'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-
+  state: {
+  },
+  mutations: {
+  },
+  actions: {
+  },
   modules: {
-    ShoppingCartModule,
-    ProductModule
+    product,cart
   }
 })

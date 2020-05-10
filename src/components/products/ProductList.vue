@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <!-- THIS IS THE SECTION THAT THE PRODUCT LIST ITEM WILL BE LOCATED. -->
-      <div v-for="(product,index) in productItems" :key="index">
+      <div v-for="(product,index) in productItems.data" :key="index">
         <ProductItem :product="product" />
       </div>
     </div>
