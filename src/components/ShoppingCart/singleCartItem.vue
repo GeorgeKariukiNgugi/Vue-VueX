@@ -2,7 +2,7 @@
   <div>
     <hr />
     <p>
-      <strong>Product Price</strong>&nbsp;
+      <strong>{{cartItem.name}} {{cartItem.price}}</strong>&nbsp;
       <span class="text-right" style="float:right;">
         <i class="fa fa-arrow-circle-down cursor"></i>&nbsp;&nbsp;
         <i class="fa fa-arrow-circle-up cursor" style="color:blue;"></i>&nbsp;&nbsp;
@@ -10,20 +10,21 @@
       </span>
       <span></span>
     </p>
-    <p>
+    <!-- <p>
       <strong>TotalCost</strong>
       <span style="float:right;">
         Quantity
         <strong>#no</strong>
       </span>
-    </p>
-    <hr />
+    </p> -->
+    <!-- <hr /> -->
   </div>
 </template>
 
 <script>
 export default {
-  name: "SingleCartItemComponent"
+  name: "SingleCartItemComponent",
+  props: ['cartItem']
 };
 </script>
 

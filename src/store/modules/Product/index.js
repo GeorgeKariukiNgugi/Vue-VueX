@@ -10,10 +10,10 @@ const mutations = {
 const actions = {
   getProductItems({ commit }) {
     axios
-      .get("https://vuejsapi.georgekariukiportfolio.tk/api/products")
+      .get("https://vuejsapi.georgekprojects.tk/api/products")
       .then(response => {
         commit("UPDATE_PRODUCT_ITEMS", response.data);
-        console.log("This is the response. " + response);
+        console.log(response.data);
       })
       .catch(error => {
         console.log("The call was unsuccessful", error);
