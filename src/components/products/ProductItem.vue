@@ -5,9 +5,9 @@
         <img src="../../../public/design/assets/img/photo-1525257831700-183b9b8bf5c4.jpg" />
         <!-- C:\wamp64\www\vue-vuex\public\design\assets\img\cake-in-chocolate-decorated-with-berries-picture-id866213450.jpg -->
         <div class="actions">
-          <a class="add-to-cart" href></a>
-          <a class="quickview" href></a>
-          <a class="wishlist" href></a>
+          <a href="#"  class="add-to-cart" ></a>
+          <a href="#" class="quickview" ></a>
+          <a href="#" class="wishlist" ></a>
         </div>
       </div>
       <div class="product-info">
@@ -20,6 +20,7 @@
       </div>
     </div>
   </div>
+  
   <!-- THIS COMMENTED CODE IS THE ALTERNETIVE SETTING AND STYLEING OF THE ITEM LISTS.  -->
 
   <!-- <div class="col-md-4">
