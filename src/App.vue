@@ -1,35 +1,60 @@
 <template>
-  <div id="app">
-    <h2 class="text-center">VueX Ecommerce Platform Consuming Laravel API.</h2>
-    <hr />
-    <hr />
-    <SearchComponent />
-    <div class="row">
-      <div class="col-md-9">
-        <!-- THIS IS THE SECTION THAT THE PRODUCT LIST COMPONENT WILL BE PLACED -->
-        <ProductListComponent />
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          transition="scale-transition"
+          width="40"
+        />
+
+        <v-img
+          alt="Vuetify Name"
+          class="shrink mt-1 hidden-sm-and-down"
+          contain
+          min-width="100"
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
+          width="100"
+        />
       </div>
-      <div class="col-sm-8 col-lg-3">
-        <!-- THIS IS THE SECTION THAT THE PRODUCT CART COMPONENT WILL BE PLACED -->
-        <ShoppingCartCoallationComponent />
-      </div>
-    </div>
-  </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Latest Release</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-content>
+      <HelloWorld/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import SearchComponent from "./components/SearchComponent/SearchComponent.vue";
-import ProductListComponent from "./components/products/ProductList.vue";
-import ShoppingCartCoallationComponent from "./components/ShoppingCart/ShoppingCartComponentCoalation.vue";
+import HelloWorld from './components/HelloWorld';
+
 export default {
-  name: "App",
+  name: 'App',
+
   components: {
-    SearchComponent,
-    ProductListComponent,
-    ShoppingCartCoallationComponent
-  }
+    HelloWorld,
+  },
+
+  data: () => ({
+    //
+  }),
 };
 </script>
-
-<style>
-</style>
