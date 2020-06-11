@@ -1,70 +1,65 @@
 <template>
-  <div class="col-md-4">
-    <div class="product-inner">
-      <div class="product-wrap" data-lightbox="photos">
-        <img src="../../../public/design/assets/img/photo-1525257831700-183b9b8bf5c4.jpg" />
-        <!-- C:\wamp64\www\vue-vuex\public\design\assets\img\cake-in-chocolate-decorated-with-berries-picture-id866213450.jpg -->
-        <div class="actions">
-          <a href="#"  class="add-to-cart" ></a>
-          <a href="#" class="quickview" ></a>
-          <a href="#" class="wishlist" ></a>
-        </div>
-      </div>
-      <div class="product-info">
-        <h3 class="product-title">
-          <a href>{{product.name}}</a>
-        </h3>
-        <span class="price">Ksh {{product.totalPrice}} /=</span>
-        <br />
-        <small>{{product.star}}</small>
-      </div>
-    </div>
-  </div>
-  
-  <!-- THIS COMMENTED CODE IS THE ALTERNETIVE SETTING AND STYLEING OF THE ITEM LISTS.  -->
+  <v-app>
+             <v-card class="mx-auto" max-width="400">
+            <v-img
+              class="white--text align-end"
+              height="200px"
+              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+            >
+              <v-card-title>Top 10 Australian beaches</v-card-title>
+            </v-img>
 
-  <!-- <div class="col-md-4">
-      <div class="border">
-        <div class="wrap">
-          <div class="product-wrap">
-            <a href>
-              <img src="https://html5book.ru/wp-content/uploads/2015/10/black-dress.jpg" />
-            </a>
-          </div>
-          <div class="loop-action">
-            <a class="add-to-cart" href>Быстрый просмотр</a>
-            <a class="loop-add-to-cart" href>В корзину</a>
-          </div>
-        </div>
-        <div class="product-info">
-          <div class="stars"></div>
-          <h3 class="product-title">Маленькое черное платье</h3>
-          <div class="price">&#8381; 1999</div>
-        </div>
-      </div>
-  </div>-->
+            <v-card-subtitle class="pb-0">Number 10</v-card-subtitle>
+
+            <v-card-text class="text--primary">
+              <div>Whitehaven Beach</div>
+
+              <div>Whitsunday Island, Whitsunday Islands</div>
+            </v-card-text>
+
+            <v-card-actions>
+              <v-btn color="orange" text>
+                Share
+              </v-btn>
+
+              <v-btn color="orange" text>
+                Explore
+              </v-btn>
+              <v-spacer></v-spacer>
+
+              <v-btn icon @click="show = !show">
+                <v-icon>{{
+                  show ? "mdi-chevron-up" : "mdi-chevron-down"
+                }}</v-icon>
+              </v-btn>
+            </v-card-actions>
+            <v-expand-transition>
+              <div v-show="show">
+                <v-divider></v-divider>
+
+                <v-card-text>
+                  I'm a thing. But, like most politicians, he promised more than
+                  he could deliver. You won't have time for sleeping, soldier,
+                  not with all the bed making you'll be doing. Then we'll go
+                  with that data file! Hey, you add a one and two zeros to that
+                  or we walk! You're going to do his laundry? I've got to find a
+                  way to escape.
+                </v-card-text>
+              </div>
+            </v-expand-transition>
+          </v-card>
+  </v-app>
 </template>
 
 <script>
 // import  from ''
 export default {
   name: "ProductItem",
-  props: ["product"]
-  //   component:{
-
-  //   }
+  props: ["product"],
+  data: () => ({
+    show: false,
+  }),
 };
 </script>
 
-<style scoped>
-.add-to-cart:hover {
-  background-color: green;
-}
-.wishlist:hover {
-  background-color: red;
-}
-
-.quickview:hover {
-  background-color: blueviolet;
-}
-</style>
+<style scoped></style>

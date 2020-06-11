@@ -8,21 +8,21 @@
         <strong>Shopping Cart.</strong>
       </h5>
     </div>
-    <div class="card-body" >
+    <div class="card-body">
       <!-- THIS IS THE SECTION THAT THE CARD COMPONENTS GO. -->
       <div v-for="cartItem in cartItems" :key="cartItem.id">
-        <SingleCartItemComponent :cartItem= "cartItem"/>
+        <SingleCartItemComponent :cartItem="cartItem" />
       </div>
-      
-      <TotalGoodsComponent/>
-      <CheckOutButtonComponent/>
+
+      <TotalGoodsComponent />
+      <CheckOutButtonComponent />
     </div>
   </div>
   <!-- </div> -->
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import { mapGetters } from "vuex";
 import SingleCartItemComponent from "./singleCartItem.vue";
 import TotalGoodsComponent from "./totalGoods.vue";
 import CheckOutButtonComponent from "./checkOutButton.vue";
@@ -31,18 +31,15 @@ export default {
   components: {
     SingleCartItemComponent,
     TotalGoodsComponent,
-    CheckOutButtonComponent
+    CheckOutButtonComponent,
   },
-  computed:{
-     ...mapGetters([
-       'cartItems'
-     ])
+  computed: {
+    ...mapGetters(["cartItems"]),
   },
-  created(){
-    this.$store.dispatch('getAllCartItems');
-  }
+  created() {
+    this.$store.dispatch("getAllCartItems");
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
