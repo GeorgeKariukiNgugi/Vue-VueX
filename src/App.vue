@@ -45,9 +45,9 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-content color="#C8EBDF" class="my-5">
-      <v-row class="mb-12">
-        <v-col sm="5" md="8">
+    <v-content class="my-5">
+      <v-row no-gutters >
+        <v-col  sm="5" md="8">
           <ProductList />
         </v-col>
         <v-col sm="5" md="4">

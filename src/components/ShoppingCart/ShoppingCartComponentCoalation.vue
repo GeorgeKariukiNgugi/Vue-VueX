@@ -1,24 +1,26 @@
 <template>
-  <!-- <div class="col-sm-8 col-lg-3"> -->
-  <div class="card">
-    <div class="card-header">
-      <!-- <h2 class="text-center mb-0"></h2> -->
-      <h2 class="text-center mb-0"><i class="fa fa-shopping-cart"></i></h2>
-      <h5 class="text-center mb-0">
-        <strong>Shopping Cart.</strong>
-      </h5>
-    </div>
-    <div class="card-body">
-      <!-- THIS IS THE SECTION THAT THE CARD COMPONENTS GO. -->
+  <div>
+    <v-card class="mx-auto px-5 " max-width="400">
+      <v-img
+        class="black--text align-end"
+        src="@/assets/shopping-cart-256.webp"
+        max-height="100"
+        contain
+        color="primary"
+      >
+      </v-img>
+      <v-card-title></v-card-title>
+      <h4 class="text-center mt-0">
+        Cart Items.
+      </h4>
+      <v-divider></v-divider>
       <div v-for="cartItem in cartItems" :key="cartItem.id">
         <SingleCartItemComponent :cartItem="cartItem" />
       </div>
-
       <TotalGoodsComponent />
       <CheckOutButtonComponent />
-    </div>
+    </v-card>
   </div>
-  <!-- </div> -->
 </template>
 
 <script>

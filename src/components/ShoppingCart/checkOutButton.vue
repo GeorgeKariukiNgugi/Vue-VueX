@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col-8 offset-2">
-        <button class="btn btn-success btn-block" type="button">
-          <strong>&nbsp; &nbsp;Check Out ($$$$)</strong>
-        </button>
-      </div>
-    </div>
+  <div>    
+      <v-row justify center class="mb-12">
+        <v-col  md="4">
+            <v-btn color="success" block>Check Out ($$$$)</v-btn>
+        </v-col>        
+      </v-row>        
   </div>
 </template>
 

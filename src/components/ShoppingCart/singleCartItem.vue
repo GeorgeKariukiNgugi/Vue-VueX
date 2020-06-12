@@ -1,35 +1,36 @@
 <template>
   <div>
-    <hr />
     <p>
-      <strong>{{cartItem.name}} {{cartItem.price}}</strong>&nbsp;
-      <span class="text-right" style="float:right;">
-        <i class="fa fa-arrow-circle-down cursor"></i>&nbsp;&nbsp;
-        <i class="fa fa-arrow-circle-up cursor" style="color:blue;"></i>&nbsp;&nbsp;
-        <i class="fa fa-trash-o cursor" style="color:red;"></i>
+      <span class="font-weight-black text-capitalize">
+        {{ cartItem.name }}
       </span>
-      <span></span>
+      <span class=""> Ksh {{ cartItem.price }} /= each</span>
+      <span class="text-right" style="float:right;">
+        {{ cartItem.quantity }}
+        <v-icon color="blue" class="cursor">arrow_upward</v-icon>
+        <v-icon color="green" class="cursor">arrow_downward</v-icon>
+        <v-icon color="red" class="cursor">delete</v-icon>
+      </span>
     </p>
-    <!-- <p>
+    <p>
       <strong>TotalCost</strong>
       <span style="float:right;">
-        Quantity
-        <strong>#no</strong>
+        <strong>${{ cartItem.quantity * cartItem.price }}/=</strong>
       </span>
-    </p> -->
-    <!-- <hr /> -->
+    </p>
+    <v-divider></v-divider>
   </div>
 </template>
 
 <script>
 export default {
   name: "SingleCartItemComponent",
-  props: ['cartItem']
+  props: ["cartItem"],
 };
 </script>
 
 <style scoped>
-.cursor{
+.cursor {
   cursor: pointer;
 }
 </style>
