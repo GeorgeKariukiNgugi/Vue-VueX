@@ -46,17 +46,25 @@
     </v-navigation-drawer>
 
     <v-content color="#C8EBDF" class="my-5">
-      <ProductList/>
+      <v-row class="mb-12">
+        <v-col sm="5" md="8">
+          <ProductList />
+        </v-col>
+        <v-col sm="5" md="4">
+          <Cart />
+        </v-col>
+      </v-row>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import ProductList from './components/products/ProductList'
+import ProductList from "./components/products/ProductList";
+import Cart from "./components/ShoppingCart/ShoppingCartComponentCoalation"
 export default {
   name: "App",
 
-  components: {ProductList},
+  components: { ProductList,Cart },
 
   data: () => ({
     drawer: true,

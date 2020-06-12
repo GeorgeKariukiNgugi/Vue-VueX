@@ -76,6 +76,7 @@
               </div>
             </v-expand-transition>
           </v-card>
+          <!-- <ProductItem :product="product" /> -->
         </v-col>
       </v-row>
     </v-container>
@@ -97,7 +98,7 @@ export default {
     // ProductItem,
   },
   data: () => ({
-    this: false,
+    show: false,
     rating: this,
   }),
 };
