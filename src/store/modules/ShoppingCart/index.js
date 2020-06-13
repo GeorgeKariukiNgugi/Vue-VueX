@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import Vue from 'vue';
 const state = {
     cartItems: []
 };
@@ -20,9 +20,22 @@ const actions = {
         });
     },
     addingProductToCart({commit},cartItem){
-        axios.post("https://vuejsapi.georgekprojects.tk/api/cart",cartItem)
+        // ! adding the data that will be posted.
+        var obj = {};        
+        obj['productId'] = cartItem.id;
+        obj['quantity'] = 1;
+        axios.post("https://vuejsapi.georgekprojects.tk/api/cart",obj)
         .then(response => {
-          commit("UPDATE_CART_ITEMS", response.data.data);          
+          console.log(response);
+          commit("UPDATE_CART_ITEMS", response.data);    
+          // Vue.swal(cartItem.name+" Added to Cart."); 
+          Vue.swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: cartItem.name+' Added To Cart.',
+            showConfirmButton: true,
+            timer: 4500
+          })         
         })
         .catch(error => {
           console.log("The call was unsuccessful to post data to cart.", error);

@@ -5,8 +5,12 @@ import vuetify from './plugins/vuetify';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import '@mdi/font/css/materialdesignicons.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.config.productionTip = false
-
+Vue.use(VueSweetalert2);
+import VueSwal from 'vue-swal'
+Vue.use(VueSwal)
 new Vue({
   store,
   vuetify,

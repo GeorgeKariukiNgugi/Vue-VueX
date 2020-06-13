@@ -25,7 +25,7 @@
           <v-icon dark>mdi-heart</v-icon>
         </v-btn>
 
-        <v-btn @click="addingProductToCart(product)" class="mx-2" fab dark small color="secondary">
+        <v-btn @click="addingProductToCart(product)" ref="product.name" class="mx-2" fab dark small color="secondary">
           <v-icon dark>mdi-cart</v-icon>
         </v-btn>
         <v-btn class="mx-2" fab dark small color="accent">
@@ -58,6 +58,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import Vue from 'vue';
 export default {
   name: "ProductItem",
   props: ["product"],
@@ -68,7 +69,24 @@ export default {
   methods:{
     ...mapActions([
     'addingProductToCart'      
-    ])
+    ]),
+    showSweetAlert(){
+      Vue.swal.fire({
+  title: 'Are you sure?',
+  text: "You want To Add to Cart  "+this.$refs.product,
+  icon: 'success',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, Add it!'
+}).then((result) => {
+  if (result.value) {
+     Vue.swal.fire(
+      this.$store.dispatch()
+    )
+  }
+})
+    }
   }
 };
 </script>
