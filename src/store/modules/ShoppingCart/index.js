@@ -22,8 +22,7 @@ const actions = {
     addingProductToCart({commit},cartItem){
         axios.post("https://vuejsapi.georgekprojects.tk/api/cart",cartItem)
         .then(response => {
-          commit("UPDATE_CART_ITEMS", response.data.data);
-          console.log(response.data);
+          commit("UPDATE_CART_ITEMS", response.data.data);          
         })
         .catch(error => {
           console.log("The call was unsuccessful to post data to cart.", error);
