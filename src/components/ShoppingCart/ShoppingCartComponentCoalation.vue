@@ -14,11 +14,17 @@
         Cart Items.
       </h4>
       <v-divider></v-divider>
-      <div v-for="cartItem in cartItems" :key="cartItem.id">
-        <SingleCartItemComponent :cartItem="cartItem" />
+      <div v-if="cartItems.length < 1">
+          <p class="font-weight-black text-center">There are No Items, Kindly Add.</p>
       </div>
+      <div v-else v-for="cartItem in cartItems" :key="cartItem.id">
+
+        <SingleCartItemComponent :cartItem="cartItem" />
+        
+      </div>
+      <v-divider></v-divider>
       <TotalGoodsComponent />
-      <CheckOutButtonComponent />
+      <CheckOutButtonComponent/>
     </v-card>
   </div>
 </template>

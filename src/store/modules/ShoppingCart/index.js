@@ -26,9 +26,11 @@ const actions = {
         obj['quantity'] = 1;
         axios.post("https://vuejsapi.georgekprojects.tk/api/cart",obj)
         .then(response => {
+          console.log("Adding.");
           console.log(response);
           commit("UPDATE_CART_ITEMS", response.data);    
-          // Vue.swal(cartItem.name+" Added to Cart."); 
+
+          // ! adding the notification.
           Vue.swal.fire({
             position: 'center',
             icon: 'success',
@@ -39,6 +41,27 @@ const actions = {
         })
         .catch(error => {
           console.log("The call was unsuccessful to post data to cart.", error);
+        });
+    },
+    deletingTheCartItems({commit},cartItem){
+      console.log(cartItem);
+      axios.delete("https://vuejsapi.georgekprojects.tk/api/cart/"+cartItem.id).then(
+        response=> {
+          console.log("Deleting the cart Item.");
+          commit("UPDATE_CART_ITEMS",response.data)
+
+          console.log(response);
+           // ! adding the notification.
+           Vue.swal.fire({
+            position: 'center',
+            icon: 'question',
+            title: cartItem.name+' Deleted From Cart.',
+            showConfirmButton: true,
+            timer: 4500
+          }) 
+        })
+          .catch(error => {
+            console.log("The call was unsuccessful to delete data from cart.", error);
         });
     }
 };

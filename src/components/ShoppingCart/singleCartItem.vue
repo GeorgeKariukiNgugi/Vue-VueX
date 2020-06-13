@@ -9,7 +9,7 @@
         {{ cartItem.quantity }}
         <v-icon color="blue" class="cursor">arrow_upward</v-icon>
         <v-icon color="green" class="cursor">arrow_downward</v-icon>
-        <v-icon color="red" class="cursor">delete</v-icon>
+        <v-icon color="red" @click="deletingTheCartItems(cartItem)" class="cursor">delete</v-icon>
       </span>
     </p>
     <p>
@@ -23,10 +23,16 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "SingleCartItemComponent",
   props: ["cartItem"],
-  data() {},
+  // data() {},
+  methods: {
+    ...mapActions([
+      'deletingTheCartItems'
+    ])
+  }
 };
 </script>
 
