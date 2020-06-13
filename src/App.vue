@@ -5,7 +5,9 @@
         color="black"
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
-      <v-toolbar-title black>Vue Js Ecommerce Applictaion</v-toolbar-title>
+
+      <v-toolbar-title class="hidden-md-and-up" black>VueJs Ecommerce</v-toolbar-title>
+      <v-toolbar-title class="hidden-sm-and-down" black>VueJs Ecommerce Applications.</v-toolbar-title>
       <v-spacer></v-spacer>
 
       <v-btn depressed color="#BBE6D6">
@@ -41,30 +43,46 @@
             </v-list-item-icon>
             <v-list-item-title>Account</v-list-item-title>
           </v-list-item>
+
+           <v-list-item class="hidden-md-and-up">
+            <v-list-item-icon>
+              <v-icon>mdi-cart</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Cart</v-list-item-title>
+          </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
 
     <v-content class="my-5">
-      <v-row no-gutters >
-        <v-col  sm="5" md="8">
-          <ProductList />
-        </v-col>
-        <v-col sm="5" md="4">
-          <Cart />
-        </v-col>
-      </v-row>
+      <div class="hidden-sm-and-down">
+        <v-row no-gutters>
+          <v-col sm="5" md="8">
+            <ProductList />
+          </v-col>
+          <v-col sm="5" md="4">
+            <Cart />
+          </v-col>
+        </v-row>
+      </div>
+       <div class="hidden-md-and-up">
+        <v-row no-gutters>
+          <v-col sm="12" >
+            <ProductList />
+          </v-col>         
+        </v-row>
+      </div>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import ProductList from "./components/products/ProductList";
-import Cart from "./components/ShoppingCart/ShoppingCartComponentCoalation"
+import Cart from "./components/ShoppingCart/ShoppingCartComponentCoalation";
 export default {
   name: "App",
 
-  components: { ProductList,Cart },
+  components: { ProductList, Cart },
 
   data: () => ({
     drawer: true,
