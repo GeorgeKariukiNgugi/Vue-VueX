@@ -9,12 +9,7 @@ const mutations = {
     }
 };
 const actions = {
-    getAllCartItems({ commit }) {
-        // axios.get('https://vuejsapi.georgekprojects.tk/api/cart').then((response) => {            
-        //     commit('UPDATE_CART_ITEMS', response.data);
-        // }).catch(error => {
-        //     console.log("The call was unsuccessful", error);
-        // });
+    getAllCartItems({ commit }) {       
         axios.get("https://vuejsapi.georgekprojects.tk/api/cart")
         .then(response => {
           commit("UPDATE_CART_ITEMS", response.data.data);
