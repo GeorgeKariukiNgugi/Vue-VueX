@@ -2,7 +2,7 @@
   <div>
     <p>
       <span class="font-weight-black text-capitalize">
-       {{ cartItem.name }}
+        {{ cartItem.name }}
       </span>
       <span class=""> Ksh {{ cartItem.price }} /= each</span>
       <span class="text-right" style="float:right;">
@@ -26,9 +26,7 @@
 export default {
   name: "SingleCartItemComponent",
   props: ["cartItem"],
-  data(){
-    
-  }
+  data() {},
 };
 </script>
 

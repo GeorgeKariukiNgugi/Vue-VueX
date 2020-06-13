@@ -4,20 +4,20 @@
       Total Items
       <span style="float:right;color:red;">
         <i class="fa fa-trash "></i>
-        <strong>&nbsp;Remove &nbsp;All</strong>
-      </span>&nbsp;
+        <strong>&nbsp;Remove &nbsp;All</strong> </span
+      >&nbsp;
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TotalGoodsComponent"
+  name: "TotalGoodsComponent",
 };
 </script>
 
 <style scoped>
-.cursor{
+.cursor {
   cursor: pointer;
 }
 </style>
