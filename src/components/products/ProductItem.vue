@@ -25,7 +25,7 @@
           <v-icon dark>mdi-heart</v-icon>
         </v-btn>
 
-        <v-btn class="mx-2" fab dark small color="secondary">
+        <v-btn @click="addingProductToCart(product)" class="mx-2" fab dark small color="secondary">
           <v-icon dark>mdi-cart</v-icon>
         </v-btn>
         <v-btn class="mx-2" fab dark small color="accent">
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-// import  from ''
+import { mapActions } from "vuex";
 export default {
   name: "ProductItem",
   props: ["product"],
@@ -65,6 +65,11 @@ export default {
     show: false,
     rating: this,
   }),
+  methods:{
+    ...mapActions([
+    'addingProductToCart'      
+    ])
+  }
 };
 </script>
 

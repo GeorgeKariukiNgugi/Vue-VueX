@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row justify center class="mb-12">
+    <v-row center class="mb-12">
       <v-col md="12">
         <v-btn block color="success">Check Out ($$$$)</v-btn>
       </v-col>

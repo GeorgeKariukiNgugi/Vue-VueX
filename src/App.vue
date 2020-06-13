@@ -41,8 +41,7 @@
 
       <v-divider></v-divider>
       <v-list nav dense app>
-        <v-list-item-group
-          v-model="group"
+        <v-list-item-group          
           active-class="deep-purple--text text--accent-4"
         >
           <v-list-item>

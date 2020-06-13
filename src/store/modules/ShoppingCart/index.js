@@ -16,7 +16,17 @@ const actions = {
           console.log(response.data);
         })
         .catch(error => {
-          console.log("The call was unsuccessful", error);
+          console.log("The call was unsuccessful to get all products.", error);
+        });
+    },
+    addingProductToCart({commit},cartItem){
+        axios.post("https://vuejsapi.georgekprojects.tk/api/cart",cartItem)
+        .then(response => {
+          commit("UPDATE_CART_ITEMS", response.data.data);
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log("The call was unsuccessful to post data to cart.", error);
         });
     }
 };
