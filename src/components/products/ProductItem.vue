@@ -64,7 +64,7 @@ export default {
   props: ["product"],
   data: () => ({
     show: false,
-    rating: this,
+    // rating: this,
   }),
   methods:{
     ...mapActions([
