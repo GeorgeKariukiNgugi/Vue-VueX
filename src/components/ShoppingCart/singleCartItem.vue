@@ -7,8 +7,8 @@
       <span class=""> Ksh {{ cartItem.price }} /= each</span>
       <span class="text-right" style="float:right;">
         {{ cartItem.quantity }}
-        <v-icon color="blue" class="cursor">arrow_upward</v-icon>
-        <v-icon color="green" class="cursor">arrow_downward</v-icon>
+        <v-icon color="blue"   @click="addUpdatingCartItems(cartItem)" class="cursor">arrow_upward</v-icon>
+        <v-icon color="green"  @click="downUpdatingCartItems(cartItem)" class="cursor">arrow_downward</v-icon>
         <v-icon color="red" @click="deletingTheCartItems(cartItem)" class="cursor">delete</v-icon>
       </span>
     </p>
@@ -27,11 +27,24 @@ import { mapActions } from "vuex";
 export default {
   name: "SingleCartItemComponent",
   props: ["cartItem"],
-  // data() {},
+  data() {
+    return{
+          editingQuantity: 1
+    }    
+  },
   methods: {
     ...mapActions([
-      'deletingTheCartItems'
-    ])
+      'deletingTheCartItems',
+      'addUpdatingCartItems',
+      'downUpdatingCartItems'
+    ]),
+    updatingCartItemsMethod(cartItemObject){
+
+      var obj = {};
+      obj['id'] = cartItemObject.id;
+      obj['number'] = this.editingQuantity
+
+    }
   }
 };
 </script>
