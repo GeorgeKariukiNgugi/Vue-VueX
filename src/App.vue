@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <v-app-bar
-      flat
-      app
+      height = "90"
+      app            
       class="black--text"
       color="#BBE6D6"
       dark
