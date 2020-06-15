@@ -31,7 +31,7 @@
             )
           "
         ></v-pagination>
-    <v-bottom-navigation fixed="true" class="hidden-md-and-up" v-model="bottomNav">     
+    <v-bottom-navigation background-color="#BBE6D6" fixed="true" class="hidden-md-and-up" v-model="bottomNav">     
        <v-pagination
           v-model="page"
           :circle="circle"
