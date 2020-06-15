@@ -1,41 +1,36 @@
 <template>
   <v-app>
-    <v-app-bar flat app color="#BBE6D6" dark style="margin:0%">
+    <v-app-bar
+      flat
+      app
+      class="black--text"
+      color="#BBE6D6"
+      dark
+      style="margin:0%"
+    >
       <v-app-bar-nav-icon
         color="black"
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
 
-       <v-row v-show="searchInput">
+      <v-row v-show="searchInput">
         <v-col cols="12" sm="12">
           <v-text-field
             v-model="message1"
             label="Regular"
             clearable
+            color="black"
+            class="black--text"
           ></v-text-field>
         </v-col>
-       </v-row>
-      <!-- <v-text-field
-            v-model="message4"
-            label="Outlined"
-            outlined
-            clearable
-            v-show="searchInput"
-            class="ma-0"
-          ></v-text-field> -->
-          <!-- <v-text-field
-            v-model="message1"
-            label="Regular"
-             v-show="searchInput"
-            clearable
-          ></v-text-field> -->
+      </v-row>
       <v-toolbar-title v-show="show" class="hidden-md-and-up" black
         >VueJs Ecommerce</v-toolbar-title
       >
       <v-toolbar-title v-show="show" class="hidden-sm-and-down" black
         >VueJs Ecommerce Applications.</v-toolbar-title
       >
-     
+
       <v-spacer></v-spacer>
       <v-btn icon depressed color="#BBE6D6">
         <v-icon @click="searchItem()" color="black">search</v-icon>
@@ -117,10 +112,10 @@ import Cart from "./components/ShoppingCart/ShoppingCartComponentCoalation";
 export default {
   name: "App",
   methods: {
-      searchItem(){
-        this.show = !this.show;
-        this.searchInput = !this.searchInput;
-      },
+    searchItem() {
+      this.show = !this.show;
+      this.searchInput = !this.searchInput;
+    },
   },
   components: { ProductList, Cart },
 
