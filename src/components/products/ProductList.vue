@@ -12,11 +12,10 @@
           <!-- <p>{{numberInPagination}}</p> -->
         </v-col>
       </v-row>
-      <v-row class="mb-12">
+      <!-- <v-row class="mb-12">
        
-      </v-row>
-    </v-container>
-     <v-pagination class="hidden-sm-and-down"
+      </v-row> -->
+       <v-pagination class="hidden-sm-and-down"
           v-model="page"
           :circle="circle"
           :disabled="disabled"
@@ -31,7 +30,8 @@
             )
           "
         ></v-pagination>
-    <v-bottom-navigation background-color="#BBE6D6" fixed="true" class="hidden-md-and-up" v-model="bottomNav">     
+    </v-container>    
+    <v-bottom-navigation background-color="#BBE6D6" fixed class="hidden-md-and-up" v-model="bottomNav">     
        <v-pagination
           v-model="page"
           :circle="circle"

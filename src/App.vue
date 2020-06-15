@@ -1,33 +1,54 @@
 <template>
   <v-app>
-    <v-app-bar flat app color="#BBE6D6" dark>
+    <v-app-bar flat app color="#BBE6D6" dark style="margin:0%">
       <v-app-bar-nav-icon
         color="black"
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
 
-      <v-toolbar-title class="hidden-md-and-up" black
+       <v-row v-show="searchInput">
+        <v-col cols="12" sm="12">
+          <v-text-field
+            v-model="message1"
+            label="Regular"
+            clearable
+          ></v-text-field>
+        </v-col>
+       </v-row>
+      <!-- <v-text-field
+            v-model="message4"
+            label="Outlined"
+            outlined
+            clearable
+            v-show="searchInput"
+            class="ma-0"
+          ></v-text-field> -->
+          <!-- <v-text-field
+            v-model="message1"
+            label="Regular"
+             v-show="searchInput"
+            clearable
+          ></v-text-field> -->
+      <v-toolbar-title v-show="show" class="hidden-md-and-up" black
         >VueJs Ecommerce</v-toolbar-title
       >
-      <v-toolbar-title class="hidden-sm-and-down" black
+      <v-toolbar-title v-show="show" class="hidden-sm-and-down" black
         >VueJs Ecommerce Applications.</v-toolbar-title
       >
+     
       <v-spacer></v-spacer>
-
-      <v-btn  depressed color="#BBE6D6">
+      <v-btn icon depressed color="#BBE6D6">
+        <v-icon @click="searchItem()" color="black">search</v-icon>
+      </v-btn>
+      <v-btn v-show="show" depressed color="#BBE6D6">
         <v-icon color="black">email</v-icon>
       </v-btn>
 
-             <v-badge        
-        color="green"
-        content="6"
-        overlap
-      >
-      <v-btn icon color="black">
-              <v-icon>mdi-cart</v-icon>
-            </v-btn>
-             </v-badge>
-             
+      <v-badge v-show="show" color="green" content="6" overlap>
+        <v-btn icon color="#BBE6D6">
+          <v-icon color="black">mdi-cart</v-icon>
+        </v-btn>
+      </v-badge>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app color="#BBE6D6">
       <v-list-item-content>
@@ -41,9 +62,7 @@
 
       <v-divider></v-divider>
       <v-list nav dense app>
-        <v-list-item-group          
-          active-class="deep-purple--text text--accent-4"
-        >
+        <v-list-item-group active-class="deep-purple--text text--accent-4">
           <v-list-item>
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
@@ -97,11 +116,18 @@ import ProductList from "./components/products/ProductList";
 import Cart from "./components/ShoppingCart/ShoppingCartComponentCoalation";
 export default {
   name: "App",
-
+  methods: {
+      searchItem(){
+        this.show = !this.show;
+        this.searchInput = !this.searchInput;
+      },
+  },
   components: { ProductList, Cart },
 
   data: () => ({
     drawer: true,
+    show: true,
+    searchInput: false,
   }),
 };
 </script>
