@@ -1,6 +1,7 @@
 import axios from "axios";
 const state = {
-  productItems: []
+  productItems: [],
+  loading:false,
 };
 const mutations = {
   UPDATE_PRODUCT_ITEMS(state, payload) {
@@ -8,7 +9,7 @@ const mutations = {
   }
 };
 const actions = {
-  getProductItems({ commit }) {
+  getProductItems({ commit }) {    
     axios
       .get("https://vuejsapi.georgekprojects.tk/api/products")
       .then(response => {
@@ -20,11 +21,13 @@ const actions = {
       });
   },
   getProductsFromPaginationLinks({ commit },link){
+    state.loading = true;
     axios
     .get(link)
     .then(response => {
       commit("UPDATE_PRODUCT_ITEMS", response.data);
       console.log(response.data);
+      state.loading = false;
     })
     .catch(error => {
       console.log("The call was unsuccessful", error);
