@@ -9,6 +9,7 @@
           md="4"
         >
           <ProductItem :product="product" />
+          <!-- <p>{{numberInPagination}}</p> -->
         </v-col>
       </v-row>
       <v-row class="mb-12">        
@@ -21,7 +22,7 @@
           :prev-icon="prevIcon"
           :page="page"
           :total-visible="totalVisible"
-          @input="methodonClickPagination"
+          @input='getProductsFromPaginationLinks("https://vuejsapi.georgekprojects.tk/api/products?page="+page)'
         ></v-pagination>
       </v-row>
     </v-container>
@@ -31,15 +32,20 @@
 <script>
 import ProductItem from "./ProductItem.vue";
 import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 export default {
   methods:{
-      methodonClickPagination(page){
+      gettingNextPage(page){
+
           console.log(page);
-      }
+      },
+      ... mapActions([
+        'getProductsFromPaginationLinks'
+      ])
   },
   name: "ProductList",
   computed: {
-    ...mapGetters(["productItems"]),
+    ...mapGetters(["productItems","numberInPagination"]),
   },
   created() {
     this.$store.dispatch("getProductItems");       
@@ -62,9 +68,9 @@ export default {
     totalVisible: null,
   
   }),
-  mounted(){
-    this.totalVisible = this.productItems.meta.last_page
-    this.length = this.productItems.meta.last_page
+  updated(){
+    this.totalVisible = this.numberInPagination
+    this.length = this.numberInPagination
 }
 };
 </script>

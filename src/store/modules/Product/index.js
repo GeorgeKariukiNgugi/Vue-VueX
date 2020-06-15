@@ -18,10 +18,22 @@ const actions = {
       .catch(error => {
         console.log("The call was unsuccessful", error);
       });
+  },
+  getProductsFromPaginationLinks({ commit },link){
+    axios
+    .get(link)
+    .then(response => {
+      commit("UPDATE_PRODUCT_ITEMS", response.data);
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.log("The call was unsuccessful", error);
+    });
   }
 };
 const getters = {
-  productItems: state => state.productItems
+  productItems: state => state.productItems,
+  numberInPagination: state => state.productItems.meta.last_page
 };
 
 const ProductModule = {

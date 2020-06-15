@@ -133,6 +133,11 @@ const actions = {
 };
 const getters = {
   cartItems: state => state.cartItems,
+  allProductsCost: state =>{
+    return state.cartItems.reduce((acc,cartItem)=>{
+      return (cartItem.quantity*cartItem.price)+acc;
+    },0).toFixed(2);
+  },
 };
 
 const ShoppingCartModule = {

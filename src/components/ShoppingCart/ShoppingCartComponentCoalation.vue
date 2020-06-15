@@ -24,7 +24,7 @@
       </div>
       <v-divider></v-divider>
       <TotalGoodsComponent />
-      <CheckOutButtonComponent/>
+      <CheckOutButtonComponent :allProductsCost="allProductsCost"/>
     </v-card>
   </div>
 </template>
@@ -42,7 +42,7 @@ export default {
     CheckOutButtonComponent,
   },
   computed: {
-    ...mapGetters(["cartItems"]),
+    ...mapGetters(["cartItems","allProductsCost"]),
   },
   created() {
     this.$store.dispatch("getAllCartItems");
