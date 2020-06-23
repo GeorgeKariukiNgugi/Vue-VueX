@@ -26,7 +26,7 @@
       <v-divider></v-divider>
       <TotalGoodsComponent />
       <template>
-        <CheckOutButtonComponent class="image elevation-6" :allProductsCost="allProductsCost"/>
+        <CheckOutButtonComponent :allProductsCost="allProductsCost"/>
       </template>      
     </v-card>
   </div>
@@ -54,9 +54,5 @@ export default {
 </script>
 
 <style>
-
-  .image{
-    margin-top: 66px;    
-  }
 
 </style>
