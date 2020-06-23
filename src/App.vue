@@ -8,8 +8,7 @@
 
       <v-row v-show="searchInput">
         <v-col cols="12" sm="12">
-          <v-text-field
-            v-model="message1"
+          <v-text-field            
             label="Regular"
             clearable
             color="black"
@@ -40,7 +39,7 @@
       </router-link>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app color="#BBE6D6">
-      <v-list-item two-line :class="miniVariant && 'px-0'">
+      <v-list-item two-line >
         <v-list-item-avatar>
           <img src="https://randomuser.me/api/portraits/men/81.jpg" />
         </v-list-item-avatar>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Products from '../components/ShoppingCart/ShoppingCartComponentCoalation.vue'
+import SingleProducts from '../components/products/singleProduct.vue'
 
 Vue.use(VueRouter)
  
@@ -24,6 +25,14 @@ Vue.use(VueRouter)
     name: 'Products',
     component: Products
   },
+  // ! This is the route to be used to get a single Product.
+  {
+    path: '/products/:id',
+    name: 'SingleProduct',
+    component: SingleProducts,
+    props:true
+  },
+
 ]
 
 const router = new VueRouter({

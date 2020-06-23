@@ -6,7 +6,9 @@
         height="200px"
         src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
       >
+        <router-link :to="'/products/'+product.id">
         <v-card-title>{{ product.name }}</v-card-title>
+        </router-link>
       </v-img>
 
       <v-card-subtitle class="pb-0">{{ product.name }}</v-card-subtitle>
