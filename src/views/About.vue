@@ -1,8 +1,8 @@
 <template>
   <div color="grey">
-    <v-row no-gutters class="my-8">
+    <v-row  no-gutters class="my-8">
       <v-col md="6" offset-md="3">
-        <v-card class="v-card--material pa-3">
+        <v-card style="background-color:#ABE6D6" class="v-card--material pa-3">
           <v-row>
             <v-col align="center">
               <div class="d-flex grow flex-wrap">
