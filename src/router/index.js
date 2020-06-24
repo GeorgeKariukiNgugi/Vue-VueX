@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Products from '../components/ShoppingCart/ShoppingCartComponentCoalation.vue'
 import SingleProducts from '../components/products/singleProduct.vue'
+import Profile from '../components/Profile/profile.vue'
 
 Vue.use(VueRouter)
  
@@ -31,6 +32,12 @@ Vue.use(VueRouter)
     name: 'SingleProduct',
     component: SingleProducts,
     props:true
+  },
+  // ! this route is used to get the form for the Profile.
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
   },
 
 ]

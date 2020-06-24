@@ -61,12 +61,12 @@
               <v-list-item-title>Home</v-list-item-title>
             </v-list-item>
           </router-link>
-          <router-link to="/products">
+          <router-link to="/profile">
             <v-list-item>
               <v-list-item-icon>
                 <v-icon>mdi-account</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>Account</v-list-item-title>
+              <v-list-item-title>Profile.</v-list-item-title>
             </v-list-item>
           </router-link>
           <v-list-item class="hidden-md-and-up">
@@ -79,7 +79,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-content  class="my-5">
+    <v-content style="background-color:#8EFFFF"  class="my-5">
       <router-view></router-view>
     </v-content>
   </v-app>

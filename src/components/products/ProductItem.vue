@@ -93,4 +93,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+a {
+  text-decoration: none;
+  
+}
+v-card-title{
+  color:white
+}
+</style>

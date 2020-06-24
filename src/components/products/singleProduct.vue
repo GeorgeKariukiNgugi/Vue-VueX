@@ -1,7 +1,7 @@
 <template>
   <div color="grey">
     <v-row no-gutters class="my-8">
-      <v-col md="6" offset-md="3">
+      <v-col md="6" offset-md="3" sm="6" offset-sm="3">
         <v-card style="background-color:#ABE6D6" class="v-card--material pa-3">
           <v-row>
             <v-col align="center">
@@ -68,12 +68,6 @@ export default {
       this.$store.dispatch("gettingASingleProduct", link);
   },
   computed: {
-    // productItem() {
-    //   // return this.$store.getters.productItemFromId(Number(this.id));
-    //   var link = "https://vuejsapi.georgekprojects.tk/api/products/" + Number(this.id);
-    //   console.log(link);
-    //   return this.$store.dispatch("gettingASingleProduct", link);
-    // },
     ...mapGetters(["singleProduct"]),
   },
   data: () => ({
