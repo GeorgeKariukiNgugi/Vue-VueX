@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Products from '../components/ShoppingCart/ShoppingCartComponentCoalation.vue'
+import Cart from '../components/ShoppingCart/ShoppingCartComponentCoalation.vue'
 import SingleProducts from '../components/products/singleProduct.vue'
 import Profile from '../components/Profile/profile.vue'
 
@@ -22,9 +22,9 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/products',
-    name: 'Products',
-    component: Products
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
   },
   // ! This is the route to be used to get a single Product.
   {

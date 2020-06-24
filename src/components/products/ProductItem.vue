@@ -19,7 +19,7 @@
         <div>
           <v-rating half-increments v-model="product.star"></v-rating>
         </div>
-        <div>Whitsunday Island, Whitsunday Islands {{loading}}</div>
+        <div>Whitsunday Island, Whitsunday Islands {{ loading }}</div>
       </v-card-text>
 
       <v-card-actions>
@@ -29,7 +29,7 @@
 
         <v-btn
           :loading="loading2"
-          @click="addingProductToCartMehod($event,product)"
+          @click="addingProductToCartMehod($event, product)"
           ref="product.name"
           class="mx-2"
           fab
@@ -68,35 +68,32 @@
 </template>
 
 <script>
-// import { mapActions } from "vuex";
-import {mapGetters} from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "ProductItem",
   props: ["product"],
-  data: () => ({    
+  data: () => ({
     show: false,
-    loading2: null     
+    loading2: null,
   }),
-  computed:{
-
+  computed: {
     ...mapGetters(["loading"]),
   },
-  methods: {
-    // ...mapActions(["addingProductToCart"]),
-    addingProductToCartMehod(event,object){
-        this.loading2 = true             
-        this.$store.dispatch("addingProductToCart",object);
-    }
+  methods: {    
+    addingProductToCartMehod(event, object) {
+      this.loading2 = true;
+      this.$store.dispatch("addingProductToCart", object);
+    },
   },
-  watch:{
-    loading : function(){
+  watch: {
+    loading: function() {
       if (this.loading == false) {
-        this.loading2 = false
-      } 
+        this.loading2 = false;
+      }
       console.log("This is the Value Of Loading2" + this.loading);
-    }
-  }
+    },
+  },
 };
 </script>
 

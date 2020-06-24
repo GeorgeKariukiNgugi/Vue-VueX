@@ -30,7 +30,7 @@
       <v-btn v-show="show" depressed color="#BBE6D6">
         <v-icon color="black">email</v-icon>
       </v-btn>
-      <router-link to="/products">
+      <router-link to="/cart">
         <v-badge v-show="show" color="green" content="" overlap>
           <v-btn icon color="#BBE6D6">
             <v-icon color="black">mdi-cart</v-icon>
@@ -69,12 +69,14 @@
               <v-list-item-title>Profile.</v-list-item-title>
             </v-list-item>
           </router-link>
-          <v-list-item class="hidden-md-and-up">
-            <v-list-item-icon>
-              <v-icon>mdi-cart</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Cart</v-list-item-title>
-          </v-list-item>
+          <router-link to="/cart">
+            <v-list-item class="hidden-md-and-up">
+              <v-list-item-icon>
+                <v-icon>mdi-cart</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Cart</v-list-item-title>
+            </v-list-item>
+          </router-link>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -97,16 +99,12 @@ export default {
   },
   computed: {
     ...mapGetters(["productItems", "numberInPagination", "cartItems"]),
-  },
-  // components: { ProductList, Cart },
+  },  
   data: () => ({
     drawer: true,
     show: true,
     searchInput: false,
   }),
-  // updated(){
-
-  // }
 };
 </script>
 <style>
