@@ -63,9 +63,10 @@ export default {
   name: "ProductItem",
   props: ["id"],
   created() {
-    var link = "https://vuejsapi.georgekprojects.tk/api/products/" + Number(this.id);
-      console.log(link);
-      this.$store.dispatch("gettingASingleProduct", link);
+    var link =
+      "https://vuejsapi.georgekprojects.tk/api/products/" + Number(this.id);
+    console.log(link);
+    this.$store.dispatch("gettingASingleProduct", link);
   },
   computed: {
     ...mapGetters(["singleProduct"]),
@@ -73,9 +74,9 @@ export default {
   data: () => ({
     rating: null,
   }),
-    updated(){
-        this.rating= this.singleProduct.data.star
-    }
+  updated() {
+    this.rating = this.singleProduct.data.star;
+  },
 };
 </script>
 

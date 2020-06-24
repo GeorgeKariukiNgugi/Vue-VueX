@@ -6,8 +6,8 @@
         height="200px"
         src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
       >
-        <router-link :to="'/products/'+product.id">
-        <v-card-title>{{ product.name }}</v-card-title>
+        <router-link :to="'/products/' + product.id">
+          <v-card-title>{{ product.name }}</v-card-title>
         </router-link>
       </v-img>
 
@@ -19,7 +19,7 @@
         <div>
           <v-rating half-increments v-model="product.star"></v-rating>
         </div>
-        <div>Whitsunday Island, Whitsunday Islands</div>
+        <div>Whitsunday Island, Whitsunday Islands {{loading}}</div>
       </v-card-text>
 
       <v-card-actions>
@@ -27,7 +27,16 @@
           <v-icon dark>mdi-heart</v-icon>
         </v-btn>
 
-        <v-btn @click="addingProductToCart(product)" ref="product.name" class="mx-2" fab dark small color="secondary">
+        <v-btn
+          :loading="loading2"
+          @click="addingProductToCartMehod($event,product)"
+          ref="product.name"
+          class="mx-2"
+          fab
+          dark
+          small
+          color="secondary"
+        >
           <v-icon dark>mdi-cart</v-icon>
         </v-btn>
         <v-btn class="mx-2" fab dark small color="accent">
@@ -59,35 +68,33 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import Vue from 'vue';
+// import { mapActions } from "vuex";
+import {mapGetters} from "vuex";
+
 export default {
   name: "ProductItem",
   props: ["product"],
-  data: () => ({
+  data: () => ({    
     show: false,
-    // rating: this,
+    loading2: null     
   }),
-  methods:{
-    ...mapActions([
-    'addingProductToCart'      
-    ]),
-    showSweetAlert(){
-      Vue.swal.fire({
-  title: 'Are you sure?',
-  text: "You want To Add to Cart  "+this.$refs.product,
-  icon: 'success',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, Add it!'
-}).then((result) => {
-  if (result.value) {
-     Vue.swal.fire(
-      this.$store.dispatch()
-    )
-  }
-})
+  computed:{
+
+    ...mapGetters(["loading"]),
+  },
+  methods: {
+    // ...mapActions(["addingProductToCart"]),
+    addingProductToCartMehod(event,object){
+        this.loading2 = true             
+        this.$store.dispatch("addingProductToCart",object);
+    }
+  },
+  watch:{
+    loading : function(){
+      if (this.loading == false) {
+        this.loading2 = false
+      } 
+      console.log("This is the Value Of Loading2" + this.loading);
     }
   }
 };
@@ -96,9 +103,8 @@ export default {
 <style>
 a {
   text-decoration: none;
-  
 }
-v-card-title{
-  color:white
+v-card-title {
+  color: white;
 }
 </style>

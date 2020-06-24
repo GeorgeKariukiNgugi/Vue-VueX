@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <v-row no-gutters class="my-8">
       <v-col md="6" offset-md="3" sm="6" offset-sm="3">
         <v-card class="v-card--material pa-3">
@@ -56,38 +56,45 @@
                       required
                     ></v-text-field>
                   </v-col>
-                 <v-col cols="12" md="6">
-                  <!-- <v-date-picker v-model="picker"
+                  <v-col cols="12" md="6">
+                    <!-- <v-date-picker v-model="picker"
                     :rules="dateRules"
                     prepend-icon="date_range"
                     label="Date"
                     required
                   ></v-date-picker> -->
-                  <v-menu
-        ref="menu"
-        v-model="menu"
-        :close-on-content-click="false"
-        :return-value.sync="date"
-        transition="scale-transition"
-        offset-y
-        min-width="290px"
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-text-field
-            v-model="date"
-            label="Picker in menu"
-            prepend-icon="event"
-            readonly
-            v-bind="attrs"
-            v-on="on"
-          ></v-text-field>
-        </template>
-        <v-date-picker v-model="date" no-title scrollable>
-          <v-spacer></v-spacer>
-          <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
-          <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
-        </v-date-picker>
-      </v-menu>
+                    <v-menu
+                      ref="menu"
+                      v-model="menu"
+                      :close-on-content-click="false"
+                      :return-value.sync="date"
+                      transition="scale-transition"
+                      offset-y
+                      min-width="290px"
+                    >
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-text-field
+                          v-model="date"
+                          label="Picker in menu"
+                          prepend-icon="event"
+                          readonly
+                          v-bind="attrs"
+                          v-on="on"
+                        ></v-text-field>
+                      </template>
+                      <v-date-picker v-model="date" no-title scrollable>
+                        <v-spacer></v-spacer>
+                        <v-btn text color="primary" @click="menu = false"
+                          >Cancel</v-btn
+                        >
+                        <v-btn
+                          text
+                          color="primary"
+                          @click="$refs.menu.save(date)"
+                          >OK</v-btn
+                        >
+                      </v-date-picker>
+                    </v-menu>
                   </v-col>
                 </v-row>
               </v-container>
@@ -95,7 +102,14 @@
           </v-row>
           <v-row>
             <v-col md="6" offset-md="3">
-              <v-btn @click="submit" block color="green" class="ma-2 white--text" large dark>
+              <v-btn
+                @click="submit"
+                block
+                color="green"
+                class="ma-2 white--text"
+                large
+                dark
+              >
                 Update Profile.
                 <v-icon right dark>mdi-gavel</v-icon>
               </v-btn>
@@ -123,18 +137,17 @@ export default {
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+/.test(v) || "E-mail must be valid",
     ],
-      date: new Date().toISOString().substr(0, 10),
-      menu: false,
-      modal: false,
-      menu2: false,
+    date: new Date().toISOString().substr(0, 10),
+    menu: false,
+    modal: false,
+    menu2: false,
   }),
-  methods:{
-      submit(){
-          if(this.$refs.form.validate()){
-              console.log("This is the output.");
-          }
-          
+  methods: {
+    submit() {
+      if (this.$refs.form.validate()) {
+        console.log("This is the output.");
       }
+    },
   },
 };
 </script>

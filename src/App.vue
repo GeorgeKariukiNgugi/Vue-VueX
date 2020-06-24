@@ -8,7 +8,7 @@
 
       <v-row v-show="searchInput">
         <v-col cols="12" sm="12">
-          <v-text-field            
+          <v-text-field
             label="Regular"
             clearable
             color="black"
@@ -39,7 +39,7 @@
       </router-link>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app color="#BBE6D6">
-      <v-list-item two-line >
+      <v-list-item two-line>
         <v-list-item-avatar>
           <img src="https://randomuser.me/api/portraits/men/81.jpg" />
         </v-list-item-avatar>
@@ -79,7 +79,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-content style="background-color:#8EFFFF"  class="my-5">
+    <v-content style="background-color:#8EFFFF" class="my-5">
       <router-view></router-view>
     </v-content>
   </v-app>
@@ -96,13 +96,13 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["productItems", "numberInPagination","cartItems"]),
+    ...mapGetters(["productItems", "numberInPagination", "cartItems"]),
   },
   // components: { ProductList, Cart },
   data: () => ({
     drawer: true,
     show: true,
-    searchInput: false,    
+    searchInput: false,
   }),
   // updated(){
 

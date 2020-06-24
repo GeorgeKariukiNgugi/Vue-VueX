@@ -1,7 +1,7 @@
 import axios from "axios";
 const state = {
   productItems: [],
-  loading:false,
+  loading2:false,
   singleProduct:[]
 };
 const mutations = {
@@ -10,6 +10,11 @@ const mutations = {
   },
   GETTING_A_SINGLE_PRODUCT(state,payload){
     state.singleProduct = payload
+  },
+  UPDATE_LOADING(state,payload){
+
+    state.loading2 = payload
+
   }
 };
 const actions = {
@@ -26,13 +31,13 @@ const actions = {
   },
 
   getProductsFromPaginationLinks({ commit },link){
-    state.loading = true;
+    state.loading2 = true;
     axios
     .get(link)
     .then(response => {
       commit("UPDATE_PRODUCT_ITEMS", response.data);
       console.log(response.data);
-      state.loading = false;
+      state.loading2 = false;
     })
     .catch(error => {
       console.log("The call was unsuccessful", error);
@@ -54,6 +59,7 @@ const actions = {
   },
 };
 const getters = {
+  loading2: state=> state.loading2,
   productItems: state => state.productItems,
   singleProduct: state=> state.singleProduct,
   numberInPagination: state => state.productItems.meta.last_page,

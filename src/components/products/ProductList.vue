@@ -15,38 +15,44 @@
       <!-- <v-row class="mb-12">
        
       </v-row> -->
-       <v-pagination class="hidden-sm-and-down"
-          v-model="page"
-          :circle="circle"
-          :disabled="disabled"
-          :length="length"
-          :next-icon="nextIcon"
-          :prev-icon="prevIcon"
-          :page="page"
-          :total-visible="totalVisible"
-          @input="
-            getProductsFromPaginationLinks(
-              'https://vuejsapi.georgekprojects.tk/api/products?page=' + page
-            )
-          "
-        ></v-pagination>
-    </v-container>    
-    <v-bottom-navigation background-color="#BBE6D6" fixed class="hidden-md-and-up" v-model="bottomNav">     
-       <v-pagination
-          v-model="page"
-          :circle="circle"
-          :disabled="disabled"
-          :length="length"
-          :next-icon="nextIcon"
-          :prev-icon="prevIcon"
-          :page="page"
-          :total-visible="totalVisible"
-          @input="
-            getProductsFromPaginationLinks(
-              'https://vuejsapi.georgekprojects.tk/api/products?page=' + page
-            )
-          "
-        ></v-pagination>
+      <v-pagination
+        class="hidden-sm-and-down"
+        v-model="page"
+        :circle="circle"
+        :disabled="disabled"
+        :length="length"
+        :next-icon="nextIcon"
+        :prev-icon="prevIcon"
+        :page="page"
+        :total-visible="totalVisible"
+        @input="
+          getProductsFromPaginationLinks(
+            'https://vuejsapi.georgekprojects.tk/api/products?page=' + page
+          )
+        "
+      ></v-pagination>
+    </v-container>
+    <v-bottom-navigation
+      background-color="#BBE6D6"
+      fixed
+      class="hidden-md-and-up"
+      v-model="bottomNav"
+    >
+      <v-pagination
+        v-model="page"
+        :circle="circle"
+        :disabled="disabled"
+        :length="length"
+        :next-icon="nextIcon"
+        :prev-icon="prevIcon"
+        :page="page"
+        :total-visible="totalVisible"
+        @input="
+          getProductsFromPaginationLinks(
+            'https://vuejsapi.georgekprojects.tk/api/products?page=' + page
+          )
+        "
+      ></v-pagination>
     </v-bottom-navigation>
   </div>
 </template>
@@ -84,7 +90,7 @@ export default {
     prevIcons: ["mdi-chevron-left", "mdi-arrow-left", "mdi-menu-left"],
     page: 1,
     totalVisible: 7,
-     bottomNav: 'recent',
+    bottomNav: "recent",
   }),
   updated() {
     // this.totalVisible = this.numberInPagination
@@ -96,6 +102,6 @@ export default {
 <style>
 a {
   text-decoration: none;
-  color:white
+  color: white;
 }
 </style>

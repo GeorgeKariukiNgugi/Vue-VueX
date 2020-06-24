@@ -1,11 +1,17 @@
 import axios from "axios";
 import Vue from 'vue';
 const state = {
-  cartItems: []
+  cartItems: [],
+  loading: false,
 };
 const mutations = {
   UPDATE_CART_ITEMS(state, payload) {
     state.cartItems = payload
+  },
+  UPDATING_LOAD_STATE(state, payload){
+
+    state.loading = payload
+
   }
 };
 const actions = {
@@ -21,7 +27,8 @@ const actions = {
   },
   addingProductToCart({ commit }, cartItem) {
     // ! adding the data that will be posted.
-    this.loader = true;
+    // this.loader = true;
+    commit("UPDATING_LOAD_STATE", true);
     var obj = {};
     obj['productId'] = cartItem.id;
     obj['quantity'] = 1;
@@ -30,7 +37,8 @@ const actions = {
         console.log("Adding.");
         console.log(response);
         commit("UPDATE_CART_ITEMS", response.data);
-
+        commit("UPDATING_LOAD_STATE", false);
+        
         // ! adding the notification.
         Vue.swal.fire({
           position: 'center',
@@ -133,6 +141,7 @@ const actions = {
 };
 const getters = {
   cartItems: state => state.cartItems,
+  loading: state => state.loading,
   allProductsCost: state =>{
     return state.cartItems.reduce((acc,cartItem)=>{
       return (cartItem.quantity*cartItem.price)+acc;
