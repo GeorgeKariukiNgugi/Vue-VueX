@@ -81,8 +81,10 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-content style="background-color:#8EFFFF" class="my-5">
-      <router-view></router-view>
+    <v-content  class="my-5">
+      <v-container grid-list-xs>
+        <router-view></router-view>
+      </v-container>      
     </v-content>
   </v-app>
 </template>

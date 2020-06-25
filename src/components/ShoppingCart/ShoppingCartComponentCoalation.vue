@@ -1,4 +1,5 @@
 <template>
+<v-container>
   <div>
     <v-card class="mx-auto px-5 " max-width="400">
       <v-img
@@ -30,6 +31,7 @@
       </template>      
     </v-card>
   </div>
+  </v-container>
 </template>
 
 <script>

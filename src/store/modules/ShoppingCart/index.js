@@ -3,15 +3,25 @@ import Vue from 'vue';
 const state = {
   cartItems: [],
   loading: false,
+  loadingDeletingItem: true,
+  loadingUpItem: true,
+  loadingDownItem: true,
 };
 const mutations = {
   UPDATE_CART_ITEMS(state, payload) {
     state.cartItems = payload
   },
   UPDATING_LOAD_STATE(state, payload){
-
     state.loading = payload
-
+  },
+  UPDATING_LOAD_UP_STATE(state, payload){
+    state.loadingUpItem = payload
+  },
+  UPDATING_LOAD_DOWN_STATE(state, payload){
+    state.loadingDownItem = payload
+  },
+  UPDATING_LOAD_DELETE_STATE(state,payload){
+    state.loadingDeletingItem = payload
   }
 };
 const actions = {
@@ -80,7 +90,8 @@ const actions = {
         console.log("The call was unsuccessful to delete data from cart.", error);
       });
   },
-  downUpdatingCartItems({commit}, cartItem,number) {    
+  downUpdatingCartItems({commit}, cartItem,number) {
+    commit("UPDATING_LOAD_DOWN_STATE", true);      
     console.log(number);
     var obj = {};   
     obj['quantity'] = cartItem.quantity - 1; 
@@ -90,6 +101,7 @@ const actions = {
         if (response.status == 201) {
           commit("UPDATE_CART_ITEMS", response.data);
           // ! adding the notification.
+          commit("UPDATING_LOAD_DOWN_STATE", false);  
           Vue.swal.fire({
             position: 'center',
             icon: 'question',
@@ -109,7 +121,8 @@ const actions = {
         console.log("The call was unsuccessful to update data from cart.", error);
       });
   },
-  addUpdatingCartItems({commit}, cartItem,number) {    
+  addUpdatingCartItems({commit}, cartItem,number) {  
+    commit("UPDATING_LOAD_UP_STATE", true);    
     console.log(number);
     var obj = {};   
     obj['quantity'] = cartItem.quantity + 1;
@@ -118,6 +131,7 @@ const actions = {
         console.log("Updating the cart Item.");
         if (response.status == 201) {
           commit("UPDATE_CART_ITEMS", response.data);
+          commit("UPDATING_LOAD_UP_STATE", false);          
           // ! adding the notification.
           Vue.swal.fire({
             position: 'center',
@@ -140,6 +154,8 @@ const actions = {
   },
 };
 const getters = {
+  loadingDownItem: state=>state.loadingDownItem,
+  loadingUpItem: state => state.loadingUpItem,
   cartItems: state => state.cartItems,
   loading: state => state.loading,
   allProductsCost: state =>{

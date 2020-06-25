@@ -8,13 +8,10 @@
           sm="5"
           md="4"
         >
-          <ProductItem :product="product" />
-          <!-- <p>{{numberInPagination}}</p> -->
+          <ProductItem :product="product" />          
         </v-col>
       </v-row>
-      <!-- <v-row class="mb-12">
-       
-      </v-row> -->
+
       <v-pagination
         class="hidden-sm-and-down"
         v-model="page"
@@ -92,8 +89,7 @@ export default {
     totalVisible: 7,
     bottomNav: "recent",
   }),
-  updated() {
-    // this.totalVisible = this.numberInPagination
+  updated() {    
     this.length = this.numberInPagination;
   },
 };
