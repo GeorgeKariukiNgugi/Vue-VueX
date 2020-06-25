@@ -6,6 +6,7 @@ const state = {
   loadingDeletingItem: true,
   loadingUpItem: true,
   loadingDownItem: true,
+  numberOfCartItems: true,
 };
 const mutations = {
   UPDATE_CART_ITEMS(state, payload) {
@@ -22,6 +23,9 @@ const mutations = {
   },
   UPDATING_LOAD_DELETE_STATE(state,payload){
     state.loadingDeletingItem = payload
+  },
+  GETTING_THE_NUMBER_OF_CART_ITEMS(state,payload){
+    state.numberOfCartItems = payload
   }
 };
 const actions = {
@@ -29,7 +33,10 @@ const actions = {
     axios.get("https://vuejsapi.georgekprojects.tk/api/cart")
       .then(response => {
         commit("UPDATE_CART_ITEMS", response.data.data);
-        console.log(response.data);
+        var products = response.data.data
+        var numberOfProducts = products.length 
+        
+        commit("GETTING_THE_NUMBER_OF_CART_ITEMS", numberOfProducts);                
       })
       .catch(error => {
         console.log("The call was unsuccessful to get all products.", error);
@@ -48,6 +55,7 @@ const actions = {
         console.log(response);
         commit("UPDATE_CART_ITEMS", response.data);
         commit("UPDATING_LOAD_STATE", false);
+        commit("GETTING_THE_NUMBER_OF_CART_ITEMS", state.numberOfCartItems+1);
         
         // ! adding the notification.
         Vue.swal.fire({
@@ -70,6 +78,7 @@ const actions = {
         console.log("Deleting the cart Item.");
         if (response.status == 201) {
           commit("UPDATE_CART_ITEMS", response.data);
+          commit("GETTING_THE_NUMBER_OF_CART_ITEMS", (state.numberOfCartItems)-1);
           // ! adding the notification.
           Vue.swal.fire({
             position: 'center',
@@ -152,9 +161,11 @@ const actions = {
         console.log("The call was unsuccessful to update data from cart.", error);
       });
   },
+  
 };
 const getters = {
   loadingDownItem: state=>state.loadingDownItem,
+  numberOfCartItems: state => state.numberOfCartItems,
   loadingUpItem: state => state.loadingUpItem,
   cartItems: state => state.cartItems,
   loading: state => state.loading,

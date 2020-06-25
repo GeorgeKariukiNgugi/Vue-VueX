@@ -28,15 +28,18 @@
         <v-icon @click="searchItem()" color="black">search</v-icon>
       </v-btn>     
       <router-link to="/cart">
-        <v-badge v-show="show" color="green" content="6" overlap>
+        <v-badge v-show="show" color="green" :content="numberOfProducts" overlap>
           <v-btn color="black" icon dark>
             <v-icon color="black">mdi-cart</v-icon>
           </v-btn>
         </v-badge>
       </router-link>
-       <v-btn v-show="show" color="black" icon dark >
+      <router-link to="/profile">
+         <v-btn v-show="show" color="black" icon dark >
         <v-icon color="black">account_circle</v-icon>
       </v-btn>
+      </router-link>
+      
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app color="#BBE6D6">
       <v-list-item two-line>
@@ -100,14 +103,21 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["productItems", "numberInPagination", "cartItems"]),
+    ...mapGetters(["productItems", "numberInPagination", "cartItems","numberOfCartItems"]),
   },  
   data: () => ({
     drawer: true,
     show: true,
     searchInput: false,
+    numberOfProducts: null,
   }),
+  watch:{
+    numberOfCartItems: function(){
+      this.numberOfProducts = this.numberOfCartItems
+    }
+  }
 };
+
 </script>
 <style>
 a {
