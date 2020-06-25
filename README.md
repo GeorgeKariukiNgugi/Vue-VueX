@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 # vue-vuex
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f5345a1d50394ebfa85352289faa0774)](https://app.codacy.com/manual/GeorgeKariuki7205/Vue-VueX?utm_source=github.com&utm_medium=referral&utm_content=GeorgeKariuki7205/Vue-VueX&utm_campaign=Badge_Grade_Dashboard)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f5345a1d50394ebfa85352289faa0774)](https://app.codacy.com/manual/GeorgeKariuki7205/Vue-VueX?utm_source=github.com&utm_medium=referral&utm_content=GeorgeKariuki7205/Vue-VueX&utm_campaign=Badge_Grade_Settings)
 
 ## Project setup
