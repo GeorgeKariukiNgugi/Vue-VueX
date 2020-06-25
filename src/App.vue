@@ -26,17 +26,17 @@
       <v-spacer></v-spacer>
       <v-btn icon depressed color="#BBE6D6">
         <v-icon @click="searchItem()" color="black">search</v-icon>
-      </v-btn>
-      <v-btn v-show="show" depressed color="#BBE6D6">
-        <v-icon color="black">email</v-icon>
-      </v-btn>
+      </v-btn>     
       <router-link to="/cart">
-        <v-badge v-show="show" color="green" content="" overlap>
-          <v-btn icon color="#BBE6D6">
+        <v-badge v-show="show" color="green" content="6" overlap>
+          <v-btn color="black" icon dark>
             <v-icon color="black">mdi-cart</v-icon>
           </v-btn>
         </v-badge>
       </router-link>
+       <v-btn v-show="show" color="black" icon dark >
+        <v-icon color="black">account_circle</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app color="#BBE6D6">
       <v-list-item two-line>
@@ -51,7 +51,7 @@
       </v-list-item>
 
       <v-divider></v-divider>
-      <v-list nav dense app>
+      <v-list nav  app>
         <v-list-item-group active-class="deep-purple--text text--accent-4">
           <router-link to="/">
             <v-list-item>
