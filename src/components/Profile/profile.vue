@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container >      
     <v-row no-gutters class="my-8">
       <v-col md="6" offset-md="3" sm="6" offset-sm="3">
         <v-card class="v-card--material pa-3">
@@ -118,7 +118,7 @@
         </v-card>
       </v-col>
     </v-row>
-  </div>
+  </v-container>
 </template>
 
 <script>
